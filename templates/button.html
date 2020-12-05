@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>???</title>
+    </head>
+    <style>
+        body{
+            background-color: #101614;
+        }
+        .container { 
+        height: 96vh;
+        position: relative;
+        border: 10px solid #0ae194; 
+        }
+
+        .center {
+        margin: 0;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        -ms-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
+        }
+
+        .button{
+        width: 200px;
+        border-radius: 4px;
+        transition-duration: 0.6s;
+        background-color: #0ae194;
+        border: none;
+        color: #101614;
+        padding: 14px 40px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 24px;
+        font-family: sans-serif;
+        font-weight: 600;
+        -webkit-font-smoothing: antialiased;
+        margin: 4px 2px;
+        cursor: pointer;
+        }
+
+        .button:hover{
+            background-color: #101614;
+            color: white;
+        }
+
+        button:hover span{
+            display: none;
+        }
+        
+        button:hover:before{
+            content: "Are you sure?";
+
+        }
+    </style>
+
+    <body>
+        <div class="container">
+            <div class="center">
+                <form action="/" method="POST">
+                    <button class="button"><span>Do you trust me?</span></button>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>
