@@ -6,13 +6,198 @@
     </head>
     <style>
         body{
-            background-color: #101614;
+            animation: zoom 1.05s;
+            animation-iteration-count: infinite;
+            transition: transform .2s;
+            background-size: cover;
+            position: absolute;
+            margin: 0px;
+            overflow: hidden;
+            top: 0px;
+            bottom: 0px;
+            width: 100%;
         }
+
+        img{
+            animation: shake 2s;
+            animation-iteration-count: infinite;
+        }
+
+        .center {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 500px;
+            height: 500px;
+            margin-top: -250px;
+            margin-left: -300px;
+        }
+
+        .top{
+            position: absolute;
+            top: 25%;
+            left: 50%;
+            width: 200px;
+            height: 250px;
+            margin-top: -250px;
+            margin-left: -250px;
+        }
+
+        .bottom{
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            width: 200px;
+            height: 250px;
+            margin-top: -250px;
+            margin-left: -250px;
+        }
+
+        #slow {
+            position: relative;
+            animation: right;
+            animation-duration: 5s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+            height: 800px;
+            width: 800px;
+        }
+
+        #average{
+            position: relative;
+            animation: right;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+            height: 800px;
+            width: 800px;
+        }
+
+        #fast{
+            position: relative;
+            animation: left;
+            animation-duration: 3s;
+            animation-iteration-count: infinite;
+            animation-timing-function: ease-in-out;
+            height: 800px;
+            width: 800px;
+        }
+
+        #blip{
+            position: relative;
+            animation: blip;
+            animation-duration: 1.05s;
+            animation-iteration-count: infinite;
+            position: absolute;
+            top: 75%;
+            left: 44.55%;
+            margin-top: -250px;
+            margin-left: -300px;
+        }
+
+        #blop{
+            position: relative;
+            animation: blop;
+            animation-duration: 1.05s;
+            animation-iteration-count: infinite;
+            position: absolute;
+            top: 75%;
+            left: 72.5%;
+            margin-top: -250px;
+            margin-left: -300px;
+        }
+
+        @keyframes right {
+        0% {
+            left: 0;
+            transform: translateX(-200%)
+        }
+        100% {
+            left: 100%;
+            transform: translateX(200%)
+        }
+        }
+
+        @keyframes left {
+        0% {
+            left: 0;
+            transform: translateX(200%)
+        }
+        100% {
+            left: 100%;
+            transform: translateX(-200%)
+        }
+        }
+
+        @keyframes shake {
+            0% { transform: translate(1px, 1px) rotate(0deg); }
+            10% { transform: translate(-1px, -2px) rotate(-1deg); }
+            20% { transform: translate(-3px, 0px) rotate(1deg); }
+            30% { transform: translate(3px, 2px) rotate(0deg); }
+            40% { transform: translate(1px, -1px) rotate(1deg); }
+            50% { transform: translate(-1px, 2px) rotate(-1deg); }
+            60% { transform: translate(-3px, 1px) rotate(0deg); }
+            70% { transform: translate(3px, 1px) rotate(-1deg); }
+            80% { transform: translate(-1px, -1px) rotate(1deg); }
+            90% { transform: translate(1px, 2px) rotate(0deg); }
+            100% { transform: translate(1px, -2px) rotate(-1deg); }
+        }
+        @keyframes blip {
+            0% {opacity: 0;}
+            50% {opacity: 1;}
+            100% {opacity: 0;}
+        }
+
+        @keyframes blop {
+            0% {opacity: 1;}
+            50% {opacity: 0;}
+            100% {opacity: 1;}
+        }
+
+        @keyframes zoom {
+            0% {transform: scale(1);}
+            50% {transform: scale(1.25);}
+            100% {transform: scale(1);}
+        }
+
+        #myVideo {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%; 
+            min-height: 100%;
+        }
+
     </style>
     <body>
-        <div class="images">
-            <div class="star">1 / 6</div>
-            <img src="/static/star.png" style="width:100%">
+        <video autoplay muted loop id="myVideo">
+            <source src="/static/StarBackground.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+        <audio src="{{url_for("static", filename="ricky.wav")}}" autoplay loop></audio>
+
+        <div class="center">
+            <img src="/static/star.png">
         </div>
+
+        <div id="blip">
+            <img src="/static/star.png" style="width:25%">
+        </div>
+        <div id="blop">
+            <img src="/static/star.png" style="width:25%">
+        </div>
+
+        <div class="top">
+            <div id="fast">
+                <img src="/static/star.png" style="width:25%">
+            </div>
+        </div>
+        ​
+        <div class="bottom">
+            <div id="average">
+                <img src="/static/star.png" style="width:25%">
+            </div>
+        </div>
+
     </body>
 </html>

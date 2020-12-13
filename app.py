@@ -8,3 +8,4 @@ def index():
         return render_template("button.html")
     if request.method == "POST":
         return render_template("newpage.html")
+    
